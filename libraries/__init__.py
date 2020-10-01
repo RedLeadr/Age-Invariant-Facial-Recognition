@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Sep 25 09:53:34 2020
+Created on Thu Oct  1 11:56:32 2020
 
 @author: josephwoodall
+@author email: josephlw4@gmail.com
+
 """
 
-print('This script is currently empty')

@@ -9,11 +9,8 @@ Created on Fri Sep 25 09:54:56 2020
 '''
 
 Experiments folder - one for you and one for Kevin (he will make it) Jupiter notebooks if used
-Libraries - put main scripts 
 
 Establish scripts for each step in process (oop, custom modules) (try to write tools from scratch if you can, it looks good)
-
-Rewrite etl to python script
 
 Share drive link to Kevin once you have notion access
 
