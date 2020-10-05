@@ -1,1 +1,0 @@
-# brooks_family_photo_project
