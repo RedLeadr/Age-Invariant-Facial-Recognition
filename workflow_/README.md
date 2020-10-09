@@ -1,6 +1,5 @@
 ---INTRODUCTION---
-workflow intent: code base for DeepFace workflow
-DeepFace url:https://github.com/serengil/deepface | git@github.com:serengil/deepface.git
+Age-Invariant Face Recognition with CNN architecture is utilized 
 
 workflow folder includes: 
 Brief EDA
