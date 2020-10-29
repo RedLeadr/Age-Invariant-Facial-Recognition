@@ -29,13 +29,13 @@ Class ETL:
         then = time.time()
         import os
         from pdf2image import convert_from_path
-    
+        from workflow_.libraries.data import data
 
         os.system('brew install poppler') # install on requirements txt
         os.system('pip instlal pdf2image') # install install on requirements txt
 
-        directory = os.chdir('/Users/josephwoodall/brooks_family_photo_project/brooks_family_photo_project_original_dataset') # directory containing original dataset
-        path = ('/Users/josephwoodall/brooks_family_photo_project/brooks_family_photo_project_original_dataset/jpeg') # directory containing jpeg of original dataset
+        # directory = os.chdir('/Users/josephwoodall/brooks_family_photo_project/brooks_family_photo_project_original_dataset') # directory containing original dataset
+        # path = ('/Users/josephwoodall/brooks_family_photo_project/brooks_family_photo_project_original_dataset/jpeg') # directory containing jpeg of original dataset
     
         # Iteratively convert images in directory to .jpg
         for filename in os.listdir(directory):

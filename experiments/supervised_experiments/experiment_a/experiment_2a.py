@@ -14,6 +14,7 @@ import tensorflow as tf
 import time
 import sys
 
+from workflow_.libraries.data import directory
 
 class CNN_SVM():
 
@@ -26,6 +27,16 @@ class CNN_SVM():
         '''
         builds model base
         '''
+        # specify batch size and number of features
+        with tf.name_scope('input'):
+            x_input = tf.placeholder(
+                dtype = tf.float32, shape = [None, num_features], name = 'x_input'
+            )
+            y_input = tf.placeholder(
+                dtype = tf.float32, shape = [None, num_classes], name = 'actual_label'
+            )
+        
+        
     
     def train():
         '''
