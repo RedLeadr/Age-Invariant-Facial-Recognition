@@ -2,7 +2,7 @@ import os
 import cv2 
 import pickle
 import argparse
-import face_recognition
+import face_recognition # to write own face_recognition library for customization
 from imutils import paths 
 
 from settings import encodings_path
