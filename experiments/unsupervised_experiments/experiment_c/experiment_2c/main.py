@@ -6,8 +6,8 @@ import glob
 if len(sys.argv) != 3:
     print("Please specify valid arguments. Call the program like this \npython face_clustering.py -specify input folder- -specify output path-")
     exit()
-predictor_path = '/Users/jaywo/Downloads/dlib_face_recognition_resnet_model_v1.dat.bz2'
-face_rec_model_path = '/Users/jaywo/Downloads/shape_predictor_68_face_landmarks.dat.bz2'
+predictor_path = '/Users/jaywo/Downloads/shape_predictor_68_face_landmarks.dat.bz2'
+face_rec_model_path = '/Users/jaywo/Downloads/dlib_face_recognition_resnet_model_v1.dat.bz2' 
 
 faces_folder_path = sys.argv[1] # '/Users/jaywo/ds_personal_projects/brooks_family_photo_project/dataset'
 
