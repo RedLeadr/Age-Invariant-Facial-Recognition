@@ -5,12 +5,13 @@ import pickle
 import cv2 
 import shutil 
 import os 
+from imutils import build_montages
 
-from settings import face_data_path, encodings_path, clustering_result_path
+from settings import face_data_path, encodings_path, clustering_results_path
 
-def moveImage(image, id, labelID):
+def move_image(image, id, labelID):
 
-    path = clustering_result_path + '/label' + str(labelID)
+    path = clustering_results_path + '/label' + str(labelID)
     if os.path.exists(path) == False:
         os.mkdir(path)
     
@@ -46,14 +47,14 @@ for labelID in labelIDs: # loop over unique face integers
 
     faces = [] # initialize list of faces for montage
 
-    for i idxs: # loop over sampled indexes
+    for i in idxs: # loop over sampled indexes
         image = cv2.imread(data[i]['imagePath'])
         (top, right, bottom, left) = data[i]['loc']
         face = image[top:bottom, left:right]
 
         move_image(image, i, labelID) # moving image to cluster folder
 
-        face = cv2.resize(face(96, 96))
+        face = cv2.resize(face, dsize = (96, 96))
         faces.append(face)
     
     montage = build_montages(faces, (96, 96), (5, 5))[0]
@@ -61,5 +62,4 @@ for labelID in labelIDs: # loop over unique face integers
     title = 'Face ID # {}'.format(labelID)
     title = 'Unknown Faces' if labelID == -1 else title 
 
-    cv2.imwrite(os.path.join(clustering_result_path, title + '.jpg'), montage)
-    
+    cv2.imwrite(os.path.join(clustering_results_path, title + '.jpg'), montage)
