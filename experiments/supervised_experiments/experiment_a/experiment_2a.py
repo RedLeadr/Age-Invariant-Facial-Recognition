@@ -6,16 +6,35 @@ convolution -> pooling sub-sampling -> convolution -> pooling sub-sampling-> con
 from scratch
 '''
 
-import matplotlib.pyplot as plt
-from matplotlib import style
-import numpy as np
-import os
-import tensorflow as tf
-import time
-import sys
+import keras 
+from keras.models import Sequential
+from keras.layers import Dense, MaxPooling2D, Conv2D, Flatten, Dropout 
+from keras.optimzers import Adam 
+from keras.callbacks import TensorBoard 
+from keras.utils import np_utils 
 
-from workflow_.libraries.data import directory
+import itertools
 
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+from sklearn.model_selection import test_train_split 
+from sklearn.metrics import confusion_matrix 
+from sklearn.metrics import classification_report 
+from sklearn.metrics import roc_curve, auc 
+from sklearn.metrics import accuracy_score 
+
+
+'''
+
+633 total items in data
+
+506 in train
+64 in test
+63 in validation
+
+'''
 class CNN_SVM():
 
     def __init__(self):

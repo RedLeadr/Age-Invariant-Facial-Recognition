@@ -1,13 +1,19 @@
 import numpy as np 
 from sklearn.cluster import DBSCAN 
+from sklearn import metrics 
+# sklearn preprocessing
+import matplotlib.pyplot as plt 
 import argparse 
 import pickle 
 import cv2 
 import shutil 
 import os 
+import time 
 from imutils import build_montages
 
 from settings import face_data_path, encodings_path, clustering_results_path
+
+start_time = time.time()
 
 def move_image(image, id, labelID):
 
@@ -34,11 +40,13 @@ encodings = [d['encoding'] for d in data]
 
 '''Cluster the embeddings'''
 print('clustering...')
-clt = DBSCAN(metric = 'euclidean', n_jobs = args['jobs'])
-clt.fit(encodings)
+clt = DBSCAN(eps = 0.5, metric = 'euclidean', n_jobs = args['jobs']).fit(encodings)
 labelIDs = np.unique(clt.labels_) # number of unique faces found in dataset
+X = clt.labels_
 numUniqueFaces = len(np.where(labelIDs > -1)[0])
 print('number of unique faces: {}'.format(numUniqueFaces))
+n_clusters = len(set(X)) - (1 if 1 in X else 0)
+n_noise = list(X).count(1)
 
 for labelID in labelIDs: # loop over unique face integers
     print('faces for face id: {}'.format(labelID))
@@ -57,9 +65,22 @@ for labelID in labelIDs: # loop over unique face integers
         face = cv2.resize(face, dsize = (96, 96))
         faces.append(face)
     
+    '''Visualizing clusters'''
+
+    '''Montages'''
     montage = build_montages(faces, (96, 96), (5, 5))[0]
 
     title = 'Face ID # {}'.format(labelID)
     title = 'Unknown Faces' if labelID == -1 else title 
 
     cv2.imwrite(os.path.join(clustering_results_path, title + '.jpg'), montage)
+
+
+
+'''Metric Information'''
+print('#### METRIC INFORMATION ####')
+print('Number of clusters: %d' % n_clusters)
+print('Number of noise points: %d' % n_noise)
+# print('Silhouette Coefficient: %0.3f' % metrics.silhouette_score(X, X))
+elapsed_time = time.time() - start_time
+print('total time elapsed {} seconds'.format(elapsed_time))

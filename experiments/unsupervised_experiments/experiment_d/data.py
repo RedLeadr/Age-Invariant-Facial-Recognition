@@ -60,7 +60,7 @@ class data():
                     descriptors.append(face_descriptor)
                     images.append((img, shape))
 
-        
+        ''' '''
         self.labels = list(self.morph_dict.keys())
         self.images = list(self.morph_dict.values())
         self.root_path = settings.args.root_path 

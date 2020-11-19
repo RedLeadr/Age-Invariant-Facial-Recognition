@@ -1,4 +1,5 @@
 import os 
+import time
 import cv2 
 import pickle
 import argparse
@@ -12,6 +13,8 @@ ap.add_argument('-i', '--dataset', required = True, help = 'path to the input di
 ap.add_argument('-e', '--encodings', required = True, help = 'path to serialized database of facial encodings')
 ap.add_argument('-d', '--detection_method', type = str, default = 'cnn', help = 'face detection model to use: either hog or cnn')
 args = vars(ap.parse_args())
+
+start_time = time.time()
 
 print('quantifying faces...')
 imagePaths = list(paths.list_images(args['dataset']))
@@ -37,3 +40,5 @@ f = open(args['encodings'], 'wb')
 f.write(pickle.dumps(data))
 f.close()
 print('encodings of images saved in {}'.format(encodings_path))
+elapsed_time = time.time() - start_time
+print('total time elapsed {} seconds'.format(elapsed_time))
