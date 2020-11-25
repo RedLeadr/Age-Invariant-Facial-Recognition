@@ -1,9 +1,10 @@
-# ToEdit ReadME for description of project once experiment is selected
+This code is the version-1-tool that stemmed from the question, "how do I help my family recognize who is in the hundreds of family photos we have?" Through my knowledge of deep learning, unsupervised learning, and tensors, I achieved a unique age-invariant model. I used novel combinations of pre-processing techniques to build something that solves a generally hard issue of finding faces of family members across their lifespan. You may check the experiments for method selection under the experiments directory. 
 
-folders to make or have
-original_dataset = original images
-dataset = original_dataset cropped images
-output = otuput of dataset
+How to run: 
+
+    Put original .jpg image files into the workflow_/libraries/original_dataset folder
+    Navigate to workflow_/libraries directory and run $ streamlit run main.py
+    Clustered images will be in the /output folder, separated by each unique face
 
 Encoding Algorithm: 
 
@@ -24,5 +25,3 @@ Clustering Algorithm:
         An outlier, also known as a noise point, is a point that cannot be reached by a cluster.
     For example: a point, y, is 'reachable' from point x if there is a path P1(which is point x) and Pn(which is point y), where each Pi+1 on the path must be core paths with the possible
     exception of Pn. An object is directly density-reachable from point x, if x is a core object and y is in x's epsilon neighborhood. 
-
- 
