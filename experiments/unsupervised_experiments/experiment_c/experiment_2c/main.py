@@ -9,9 +9,9 @@ if len(sys.argv) != 3:
 predictor_path = '/Users/jaywo/Downloads/shape_predictor_68_face_landmarks.dat.bz2'
 face_rec_model_path = '/Users/jaywo/Downloads/dlib_face_recognition_resnet_model_v1.dat.bz2' 
 
-faces_folder_path = sys.argv[1] # '/Users/jaywo/ds_personal_projects/brooks_family_photo_project/dataset'
+faces_folder_path = sys.argv[1] 
 
-output_folder_path = sys.argv[2] # '/Users/jaywo/ds_personal_projects/brooks_family_photo_project/experiments/unsupervised_experiments/experiment_c/experiment_2c'
+output_folder_path = sys.argv[2] 
 
 min_detected_faces = 633
 

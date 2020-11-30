@@ -6,13 +6,15 @@ import streamlit as st
 from PIL import Image 
 
 def detect_crop():
-
-    if len(os.listdir('/Users/jaywo/ds_personal_projects/brooks_family_photo_project/workflow_/libraries/dataset')) == 0:
+    check_data_file = # path to dataset/ to check files
+    dirname = # path to original_dataset/
+    put_dirname = # path to dataset/
+    if len(os.listdir(check_data_file)) == 0:
 
         # dirname is directory relative to script where files to detect and crop
-        dirname = '/Users/jaywo/ds_personal_projects/brooks_family_photo_project/workflow_/libraries/original_dataset'
+        dirname = dirname
         # put_dirname is directory where cropped images will be written 
-        put_dirname = '/Users/jaywo/ds_personal_projects/brooks_family_photo_project/workflow_/libraries/dataset'
+        put_dirname = put_dirname
         # the width and heigh in pixels of saved images, change as needed
         crop_width = 108 
         # face crop(true) or to include other elements (false)

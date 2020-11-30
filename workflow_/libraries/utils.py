@@ -161,4 +161,4 @@ def save_faces(labels, face_paths, save_to_location = './'):
         shutil.copy(face_paths[idx], save_path)
     
 def clustering_algorithm():
-    return DBSCAN(metric = 'euclidean', n_jobs = -1, min_samples = 2)
+    return DBSCAN(min_samples = 1, metric = 'euclidean', n_jobs = -1, )

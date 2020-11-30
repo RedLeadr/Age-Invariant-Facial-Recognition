@@ -22,8 +22,9 @@ import imageio
 import numpy as np
 import pandas as pd
 
-## dataset kept receiving an errno 13 permissioned denied, i'll run it later on my laptop, but for now, ill generate an artificial dataset to test the code
-# dataset = '/Users/jaywo/ds_personal_projects/brooks_family_photo_project/workflow_/libraries/dataset'
+# performing metric check on dummy 
+# may import private dataset if needed, marked with #
+
 centers = [[-1, 1], [-1, -1], [1, -1]]
 dataset_ = make_blobs(n_samples = 750, centers = centers, cluster_std = 0.4, random_state = 0)
 
